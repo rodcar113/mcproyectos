@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC PROYECTOS · Próximamente</title>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== MISMAS VARIABLES DE TU SITIO ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #132d48;
+            --secondary-beige: #dbccb7;
+            --accent-terracota: #a57c56;
+            --white: #ffffff;
+            --black: #1e1e1e;
+            --gray-light: #f8f6f2;
+            --gray: #e5e0d8;
+            
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Cormorant Garamond', serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER (idéntico a tu sitio) ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(19, 45, 72, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(219, 204, 183, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text strong {
+            font-family: var(--font-secondary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--secondary-beige);
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO DE CONSTRUCCIÓN ===== */
+        .construction-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(19, 45, 72, 0.97), rgba(19, 45, 72, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0 L100 100 M100 0 L0 100" stroke="%23dbccb7" stroke-width="0.8" opacity="0.15"/></svg>');
+            background-size: cover;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .construction-hero:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(165, 124, 86, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .construction-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Icono animado */
+        .construction-icon {
+            font-size: 5rem;
+            color: var(--secondary-beige);
+            margin-bottom: 2rem;
+            display: inline-block;
+            animation: hammer 2s ease-in-out infinite;
+        }
+
+        @keyframes hammer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(10deg) scale(1.1); }
+            75% { transform: rotate(-10deg) scale(1.1); }
+        }
+
+        .construction-title {
+            font-family: var(--font-secondary);
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .construction-title span {
+            color: var(--secondary-beige);
+            display: block;
+            font-size: 0.5em;
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+        }
+
+        .construction-message {
+            font-size: 1.3rem;
+            color: var(--secondary-beige);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Barras de progreso */
+        .progress-container {
+            max-width: 500px;
+            margin: 3rem auto;
+        }
+
+        .progress-item {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(219, 204, 183, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-terracota), var(--secondary-beige));
+            border-radius: 2px;
+            animation: progress 2s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes progress {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Tarjetas de secciones */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0 2rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(219, 204, 183, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--secondary-beige);
+        }
+
+        .section-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-beige);
+            margin-bottom: 1rem;
+        }
+
+        .section-card h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-secondary);
+        }
+
+        .section-card p {
+            color: var(--secondary-beige);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Botones */
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-terracota), var(--accent-terracota));
+            color: var(--white);
+            box-shadow: 0 10px 30px -10px var(--accent-terracota);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px var(--accent-terracota);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-beige);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-beige);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Notificación de lanzamiento */
+        .notify-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50px;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .notify-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(219, 204, 183, 0.3);
+            font-family: var(--font-primary);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .notify-input::placeholder {
+            color: var(--secondary-beige);
+            opacity: 0.5;
+        }
+
+        .notify-input:focus {
+            outline: none;
+            border-color: var(--secondary-beige);
+        }
+
+        .notify-btn {
+            padding: 1rem 2rem;
+            background: var(--secondary-beige);
+            border: none;
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .notify-btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer (simplificado) */
+        .construction-footer {
+            background: var(--primary-dark);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(219, 204, 183, 0.1);
+        }
+
+        .construction-footer p {
+            color: var(--secondary-beige);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .sections-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .logo-text {
+                display: none; /* En móvil solo mostramos el ícono */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .construction-title {
+                font-size: 2.5rem;
+            }
+            
+            .construction-message {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (idéntico al de tu sitio) -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MC PROYECTOS DEL NORESTE" class="logo-img">
+                <div class="logo-text">
+                    <strong>MC PROYECTOS</strong>
+                    <span>DEL NORESTE</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="construction-hero">
+        <div class="construction-content">
+            <!-- Icono animado de construcción -->
+            <div class="construction-icon">
+                <i class="fas fa-hard-hat"></i>
+            </div>
+
+            <!-- Título principal -->
+            <h1 class="construction-title">
+                <span>PRÓXIMAMENTE</span>
+                Estamos construyendo algo grande
+            </h1>
+
+            <!-- Mensaje de estado -->
+            <p class="construction-message">
+                Esta sección está en desarrollo. Nuestro equipo de expertos ya está trabajando para ofrecerte contenido excepcional muy pronto.
+            </p>
+
+            <!-- Barras de progreso visual -->
+            <div class="progress-container">
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Diseño y estructura</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="transform: scaleX(0.8);"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Contenido multimedia</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="transform: scaleX(0.65);"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Detalles finales</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="transform: scaleX(0.45);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjetas de las secciones que vendrán -->
+            
+
+            <!-- Formulario de notificación (opcional) -->
+            <div class="notify-section">
+                <form class="notify-form" onsubmit="event.preventDefault(); alert('¡Gracias por tu interés! Te notificaremos cuando esté listo.');">
+                    <input type="email" class="notify-input" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="notify-btn">Notifícame</button>
+                </form>
+                <p style="color: var(--secondary-beige); font-size: 0.8rem; margin-top: 1rem; opacity: 0.6;">
+                    Te avisaremos cuando esta sección esté disponible
+                </p>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="btn-group">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home" style="margin-right: 0.5rem;"></i>
+                    Volver al inicio
+                </a>
+                <a href="#contacto" class="btn btn-outline">
+                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                    Contactar ahora
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER SIMPLE -->
+    <footer class="construction-footer">
+        <p>
+            <i class="far fa-copyright"></i> 2025 MC PROYECTOS DEL NORESTE. 
+            Construyendo el futuro con excelencia.
+        </p>
+    </footer>
+
+    <!-- Pequeño script para animaciones adicionales -->
+    <script>
+        // Efecto de contador en las barras de progreso (opcional)
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressFills = document.querySelectorAll('.progress-fill');
+            
+            // Animación de entrada para las barras
+            setTimeout(() => {
+                progressFills.forEach(fill => {
+                    fill.style.transform = 'scaleX(1)';
+                });
+            }, 500);
+        });
+
+        // Smooth scroll para el enlace de contacto
+        document.querySelector('a[href="#contacto"]')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Aquí podrías redirigir a la sección de contacto de tu página principal
+            window.location.href = 'index.html#contacto';
+        });
+    </script>
+</body>
+</html>
