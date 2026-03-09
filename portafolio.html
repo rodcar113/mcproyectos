@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC PROYECTOS DEL NORESTE · Portafolio</title>
+    
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET Y VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paleta de colores de la empresa */
+            --primary-dark: #132d48;      /* Azul profundo */
+            --secondary-beige: #dbccb7;    /* Beige cálido */
+            --accent-terracota: #a57c56;   /* Terracota */
+            --white: #ffffff;
+            --black: #1e1e1e;
+            --gray-light: #f8f6f2;
+            --gray: #e5e0d8;
+            
+            /* Tipografía */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Cormorant Garamond', serif;
+            
+            /* Transiciones */
+            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== TIPOGRAFÍA ===== */
+        h1, h2, h3, h4 {
+            font-family: var(--font-secondary);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-terracota), var(--primary-dark));
+            transition: width 0.6s ease;
+        }
+
+        h2:hover:after {
+            width: 150px;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-terracota);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            transition: var(--transition-smooth);
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(19, 45, 72, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ===== LOGO ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: var(--transition-smooth);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text strong {
+            font-family: var(--font-secondary);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--secondary-beige);
+            text-transform: uppercase;
+        }
+
+        /* ===== NAVEGACIÓN ===== */
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu a:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary-beige), var(--accent-terracota));
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover:before {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary-beige);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .menu-toggle:hover {
+            color: var(--secondary-beige);
+        }
+
+        /* ===== FILTROS DE PORTAFOLIO (igual a tu sitio actual) ===== */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--primary-dark);
+            padding: 0.8rem 2rem;
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-radius: 0;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-dark);
+            color: var(--secondary-beige);
+            border-color: var(--primary-dark);
+        }
+
+        /* ===== PORTAFOLIO GRID - Estilo renovado pero con tus proyectos ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px -20px rgba(19, 45, 72, 0.4);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        /* Placeholders con gradientes basados en los nombres de tus proyectos (simulan las fotos) */
+        .portfolio-image[data-project="Casa CG"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/07/IMG_20181213_125727_993.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Plaza 727"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/07/IMG_20171113_163224-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Cumbres Elite"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/07/IMG_20190130_190440_098-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Deptos. Rio Colorado"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/20141125_171418_RichtoneHDR-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="El Rosario"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/IMG_20181213_122526_654-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="ARCA Continental"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/2014-03-08-65PB.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="RGS – Corporativo GM Capital"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/20170602_164559-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Oficinas TÚLE"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/IMG_0025-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Galatea"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/IMG_20191110_034247_185.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Casa LMC"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2024/03/IMG_3861-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Capellania"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/IMG_20181213_114157_619.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Sierra Alta 9no Sector 115"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/IMG_1502-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="San Patricio – Cañada"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/20160317_111915-scaled.jpg'); background-size: cover; background-position: center; }
+        .portfolio-image[data-project="Sierra Alta 9no Sector 113"] { background: url('https://rmcarquitectura.com/wp-content/uploads/2021/05/IMG_2031-scaled.jpg'); background-size: cover; background-position: center; }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(19, 45, 72, 0.95), transparent);
+            color: var(--white);
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            color: var(--white);
+        }
+
+        .portfolio-location {
+            font-size: 0.9rem;
+            color: var(--secondary-beige);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .portfolio-location i {
+            font-size: 0.8rem;
+            color: var(--accent-terracota);
+        }
+
+        .btn-read-more {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--secondary-beige);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-read-more:hover {
+            background: var(--secondary-beige);
+            color: var(--primary-dark);
+        }
+
+        /* ===== LOAD MORE BUTTON ===== */
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-load-more {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .btn-load-more:hover {
+            background: var(--primary-dark);
+            color: var(--secondary-beige);
+        }
+
+        /* ===== CONTACTO SECTION (mantenida de tu diseño anterior) ===== */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            background: var(--white);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .contacto-info {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-dark));
+            color: var(--white);
+            padding: 3rem;
+        }
+
+        .contacto-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contacto-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-beige);
+            width: 40px;
+        }
+
+        .contacto-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--secondary-beige);
+        }
+
+        .contacto-item p, .contacto-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contacto-item a:hover {
+            color: var(--secondary-beige);
+        }
+
+        .contacto-form {
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray);
+            font-family: var(--font-primary);
+            transition: var(--transition-smooth);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-terracota);
+            box-shadow: 0 5px 20px rgba(165, 124, 86, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo .logo-img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            color: var(--secondary-beige);
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            color: var(--secondary-beige);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-beige);
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(219, 204, 183, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-beige);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-social a:hover {
+            background: var(--secondary-beige);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(219, 204, 183, 0.2);
+            color: var(--secondary-beige);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--primary-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.5s ease;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu a {
+                font-size: 1.2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+		
+		
+		
+		
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="MC PROYECTOS DEL NORESTE" class="logo-img">
+                <div class="logo-text">
+                    <strong>MC PROYECTOS</strong>
+                    <span>DEL NORESTE</span>
+                </div>
+            </a>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SIMPLE PARA PORTAFOLIO -->
+    <section id="inicio" style="height: 40vh; min-height: 300px; background: linear-gradient(135deg, var(--primary-dark), var(--primary-dark)); display: flex; align-items: center; justify-content: center; text-align: center;">
+	
+        <div class="hero-content" data-aos="fade-up">
+		<br>
+		<br>
+            <div class="hero-subtitle" style="color: var(--white);">NUESTRO TRABAJO</div>
+            <h1 class="hero-title" style="color: var(--white);">Portafolio de Proyectos</h1>
+            <p style="color: var(--secondary-beige); max-width: 600px; margin: 0 auto;">Explora nuestra trayectoria a través de los proyectos que hemos realizado para el sector público y privado.</p>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO COMPLETO (tomado de tu sitio) -->
+    <section id="portafolio" class="container">
+        <!-- Frase inspiradora (como en tu sitio) -->
+        <p style="font-family: var(--font-secondary); font-size: 1.8rem; color: var(--primary-dark); text-align: center; margin: 2rem 0; font-style: italic;">
+            "Creemos en una arquitectura creativa y arriesgada"
+        </p>
+        
+        <!-- Botón de contacto (como en tu sitio) -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+        </div>
+
+        <!-- Filtros (igual a tu sitio: Todos, Comercial, Corporativo, Residencial) -->
+        <div class="portfolio-filters" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="comercial">Comercial</button>
+            <button class="filter-btn" data-filter="corporativo">Corporativo</button>
+            <button class="filter-btn" data-filter="residencial">Residencial</button>
+        </div>
+
+        <!-- Grid de proyectos (con todos los proyectos de tu lista) -->
+        <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="100">
+            <!-- Proyecto 1: Casa CG -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Casa CG"></div>
+                <div class="portfolio-overlay">
+                    <h3>Casa CG</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Monterrey, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 2: Plaza 727 -->
+            <div class="portfolio-item" data-categories="comercial">
+                <div class="portfolio-image" data-project="Plaza 727"></div>
+                <div class="portfolio-overlay">
+                    <h3>Plaza 727</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Gral. Escobedo, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 3: Cumbres Elite -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Cumbres Elite"></div>
+                <div class="portfolio-overlay">
+                    <h3>Cumbres Elite</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Monterrey, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 4: Deptos. Rio Colorado -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Deptos. Rio Colorado"></div>
+                <div class="portfolio-overlay">
+                    <h3>Deptos. Rio Colorado</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Pedro Garza García, N.L.</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 5: El Rosario -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="El Rosario"></div>
+                <div class="portfolio-overlay">
+                    <h3>El Rosario</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Pedro Garza Garcia, N.L.</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 6: ARCA Continental -->
+            <div class="portfolio-item" data-categories="corporativo">
+                <div class="portfolio-image" data-project="ARCA Continental"></div>
+                <div class="portfolio-overlay">
+                    <h3>ARCA Continental</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Monterrey, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 7: RGS – Corporativo GM Capital -->
+            <div class="portfolio-item" data-categories="corporativo">
+                <div class="portfolio-image" data-project="RGS – Corporativo GM Capital"></div>
+                <div class="portfolio-overlay">
+                    <h3>RGS – Corporativo GM Capital</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Pedro Garza Garcia, N.L.</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 8: Oficinas TÚLE -->
+            <div class="portfolio-item" data-categories="corporativo">
+                <div class="portfolio-image" data-project="Oficinas TÚLE"></div>
+                <div class="portfolio-overlay">
+                    <h3>Oficinas TÚLE</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Monterrey, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 9: Galatea -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Galatea"></div>
+                <div class="portfolio-overlay">
+                    <h3>Galatea</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Pedro Garza García, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 10: Casa LMC -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Casa LMC"></div>
+                <div class="portfolio-overlay">
+                    <h3>Casa LMC</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Nicolás de los Garza, N.L.</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 11: Capellania -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Capellania"></div>
+                <div class="portfolio-overlay">
+                    <h3>Capellania</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Pedro Garza Garcia, N.L.</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 12: Sierra Alta 9no Sector 115 -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Sierra Alta 9no Sector 115"></div>
+                <div class="portfolio-overlay">
+                    <h3>Sierra Alta 9no Sector 115</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Monterrey, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 13: San Patricio – Cañada -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="San Patricio – Cañada"></div>
+                <div class="portfolio-overlay">
+                    <h3>San Patricio – Cañada</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>San Pedro Garza Garcia, N.L.</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 14: Sierra Alta 9no Sector 113 -->
+            <div class="portfolio-item" data-categories="residencial">
+                <div class="portfolio-image" data-project="Sierra Alta 9no Sector 113"></div>
+                <div class="portfolio-overlay">
+                    <h3>Sierra Alta 9no Sector 113</h3>
+                    <div class="portfolio-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Monterrey, Nuevo León</span>
+                    </div>
+                    <a href="#" class="btn-read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button (como en tu sitio) -->
+        <div class="load-more-container" data-aos="fade-up">
+            <a href="#" class="btn-load-more">Load More</a>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="container">
+        <div class="section-subtitle" data-aos="fade-up">Comunícate con nosotros</div>
+        <h2 data-aos="fade-up" data-aos-delay="100">Contacto</h2>
+        
+        <div class="contacto-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="contacto-info">
+                <h3 style="color: var(--secondary-beige); margin-bottom: 2rem; font-size: 2rem;">Información de contacto</h3>
+                
+                <div class="contacto-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:mcproyectosdn@gmail.com">mcproyectosdn@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contacto-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Teléfono</h4>
+                        <a href="tel:8112767097">811-276-7097</a>
+                    </div>
+                </div>
+                
+                <div class="contacto-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Dirección</h4>
+                        <p>NATALIO VÁZQUEZ #7802<br>VALLE DE SANTA LUCIA<br>MONTERREY, N.L. CP 64140</p>
+                    </div>
+                </div>
+                
+                <div class="footer-social" style="margin-top: 2rem;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="contacto-form">
+                <h3 style="color: var(--primary-dark); margin-bottom: 2rem;">Envíanos un mensaje</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Teléfono">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <img src="logo.png" alt="MC PROYECTOS DEL NORESTE" class="logo-img">
+                <p>MC Proyectos del Noreste ofrece soluciones integrales en construcción y servicios técnicos especializados para el sector público y privado.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#">Construcción y Obra Civil</a></li>
+                    <li><a href="#">Arquitectura e Ingeniería</a></li>
+                    <li><a href="#">Servicios Especializados</a></li>
+                    <li><a href="#">Suministro y Arrendamiento</a></li>
+                    <li><a href="#">Asesoría Técnica</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <p style="color: var(--secondary-beige); margin-bottom: 1rem;">Conecta con nosotros en redes sociales</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 MC PROYECTOS DEL NORESTE. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : 
+                '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission (prevent default for demo)
+        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Gracias por contactarnos. Te responderemos a la brevedad.');
+        });
+
+        // Filtros de portafolio (funcionalidad)
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover active de todos
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Añadir active al clickeado
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        const categories = item.getAttribute('data-categories');
+                        if (categories && categories.includes(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Load More (simulado)
+        document.querySelector('.btn-load-more')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Funcionalidad de carga adicional - En un sitio real cargarías más proyectos aquí.');
+        });
+    </script>
+</body>
+</html>
